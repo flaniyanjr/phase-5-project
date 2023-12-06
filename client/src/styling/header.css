@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    background: black;
+    padding: 5px;
+  }
+
+  .nav-link {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Marcellus";
+    font-weight: bold;
+    font-size: min(10vw, 17px);
+    background: darkred;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+}

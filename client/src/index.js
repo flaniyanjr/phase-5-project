@@ -1,8 +1,42 @@
 import React from "react";
 import App from "./components/App";
-import "./index.css";
+import "./styling/index.css";
 import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider} from "react-router-dom"
+import ReactDOM from "react-dom/client";
+import GameLibrary from "./components/GameLibrary"
+import LoginPage from "./components/LoginPage";
 
-const container = document.getElementById("root");
-const root = createRoot(container);
-root.render(<App />);
+const router = createBrowserRouter ([
+    {
+      path: "/",
+      element: <App/>,
+      children: [
+        {
+          path: "/",
+          element: <LoginPage />,
+        },
+        {
+          path: "/gamelibrary",
+          element: <GameLibrary />,
+        }
+      ]
+    }
+  ]);
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <RouterProvider router= {router}/>
+);
+
+
+
+
+
+
+
+
+// const container = document.getElementById("root");
+// const root = createRoot(container);
+// root.render(<App />);

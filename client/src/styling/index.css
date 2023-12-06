@@ -1,0 +1,33 @@
+:root {
+  --bg: #282c34;
+  --header: #fff;
+  --link: #61dafb;
+  --text: hsla(0, 0%, 100%, 0.88);
+}
+
+.card {
+  order: 2;
+  width: 300px;
+  min-height: 300px;
+  border: 5px solid;
+  border-color: black;
+  text-align: center;
+  padding-top: 5px;
+  margin: 15px;
+  border-radius: 5px;
+  font-family: 'Fredericka the Great';
+  color: black;
+  overflow: hidden;
+  background-color: darkred;
+  display: inline-block;
+}
+
+.location-image {
+  min-width: 180px;
+  max-height: 250px;
+  display: block;
+  padding: 10px 0 10px 0;
+  margin: auto;
+  text-align: center;
+  object-fit: contain;
+}
