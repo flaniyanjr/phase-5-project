@@ -69,6 +69,17 @@ function App() {
     setAllGames(updatedGamesList)
   }
 
+  function addNewSignup(newSignup) {
+    setAllSignups( current => [...current, newSignup])
+  }
+
+  function removeSignup(id) {
+    const updatedSignupList= allSignups.filter(signup => {
+      return signup.id !== id
+    })
+    setAllSignups(updatedSignupList)
+  }
+
   const context= {
     user,
     setUser,
@@ -77,7 +88,9 @@ function App() {
     currentGame,
     setCurrentGame,
     updateGameAttendees,
-    userSignups
+    userSignups,
+    addNewSignup,
+    removeSignup
   }
 
   return(

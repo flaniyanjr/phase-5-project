@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 function SignupForm() {
-    const {user, currentGame, updateGameAttendees}= useOutletContext()
+    const {user, currentGame, updateGameAttendees, addNewSignup}= useOutletContext()
 
     const [signupName, setSignupName]= useState('')
     const [position, setPosition]= useState('')
@@ -28,8 +28,9 @@ function SignupForm() {
             })
         })
         .then(r => r.json())
-        // fix this line below when you need to
-        .then(new_signup => {console.log(new_signup)})
+        .then(newSignup => {
+            addNewSignup(newSignup)
+        })
         fetch(`/pickup_games/${currentGame.gameObj.id}`, {
             method: 'PATCH',
             headers: {'Content-Type' : 'application/json'},
