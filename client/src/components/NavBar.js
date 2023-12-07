@@ -10,18 +10,18 @@ function NavBar() {
                 Home
             </NavLink>
             <NavLink
-                to="/gamelibrary"
+                to="/game-library"
                 className="nav-link"
             >
                 Pickup Games
             </NavLink>
 
-            {/* <NavLink
-                to="/myplants"
+            <NavLink
+                to="/personal-page"
                 className="nav-link"
             >
-                My Plants
-            </NavLink> */}
+                My Games
+            </NavLink>
 
 
         </nav>

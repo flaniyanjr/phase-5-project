@@ -62,7 +62,7 @@ class PickupGamesById(Resource):
         db.session.commit()
         return make_response('', 204)
 
-api.add_resource(PickupGamesById, '/pickup_games/<int:id>')
+api.add_resource(PickupGamesById, '/api/v1/pickup_games/<int:id>')
 
 class PlayerSignups(Resource):
     def post(self):

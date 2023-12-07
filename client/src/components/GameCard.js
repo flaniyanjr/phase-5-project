@@ -22,7 +22,7 @@ function GameCard({gameObj}) {
             </div>
             <button onClick= {() => {
                 setCurrentGame({gameObj})
-                navigate('/signupform')
+                navigate('/signup-form')
             }}>Register</button>
         </div>
     )

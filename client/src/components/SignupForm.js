@@ -15,9 +15,6 @@ function SignupForm() {
         setPosition(e.target.value)
     }
 
-    console.log(currentGame.gabeObj.id)
-    console.log(currentGame.gameObj.total_attendees)
-
     function handleSubmit(e) {
         e.preventDefault()
         fetch('/player_signups', {
@@ -31,6 +28,7 @@ function SignupForm() {
             })
         })
         .then(r => r.json())
+        // fix this line below when you need to
         .then(new_signup => {console.log(new_signup)})
         fetch(`/pickup_games/${currentGame.gameObj.id}`, {
             method: 'PATCH',

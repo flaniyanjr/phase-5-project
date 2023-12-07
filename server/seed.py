@@ -27,7 +27,7 @@ if __name__ == '__main__':
         print('Creating Pickup Games')
         game1= PickupGame(location= 'Maryland Sports Arena', city= 'Edgewood', state= 'MD', date= '12/23/2023', time= '7:30 PM', sport= 'Soccer', image= 'https://s3-media0.fl.yelpcdn.com/bphoto/jMgAm9iujApYifv5yHTglQ/1000s.jpg', total_attendees= 21)
 
-        game2= PickupGame(location= 'Rucker Park', city= 'New York', state= 'NY', date= '1/1/2024', time= '12:01 AM', sport= 'Basketball', image= 'https://boardroom.tv/wp-content/uploads/2021/10/20211008-NBPA-RUCKER-JL-84.jpg', total_attendees= 73)
+        game2= PickupGame(location= 'Rucker Park', city= 'New York', state= 'NY', date= '1/1/2024', time= '12:01 AM', sport= 'Basketball', image= 'https://boardroom.tv/wp-content/uploads/2021/10/20211008-NBPA-RUCKER-JL-84.jpg', total_attendees= 212)
 
         db.session.add_all([game1, game2])
         db.session.commit()
