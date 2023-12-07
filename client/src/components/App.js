@@ -5,7 +5,8 @@ import Header from "./Header";
 
 function App() {
   const [user, setUser]= useState(null)
-  const [allGames, setAllGames] = useState('')
+  const [allGames, setAllGames] = useState([])
+  const [currentGame, setCurrentGame] = useState('')
 
   useEffect(() => {
     fetch('/authorized')
@@ -30,11 +31,25 @@ function App() {
     })
   }, [])
 
+  function updateGameAttendees(newGame) {
+    const updatedGamesList= allGames.map(gameObj => {
+      if (gameObj.id === newGame.id) {
+        return newGame
+      } else {
+        return gameObj
+      }
+    })
+    setAllGames(updatedGamesList)
+  }
+
   const context= {
     user,
     setUser,
     allGames,
-    setAllGames
+    setAllGames,
+    currentGame,
+    setCurrentGame,
+    updateGameAttendees
   }
 
   return(

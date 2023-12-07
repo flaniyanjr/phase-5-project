@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import ReactDOM from "react-dom/client";
 import GameLibrary from "./components/GameLibrary"
 import LoginPage from "./components/LoginPage";
+import SignupForm from "./components/SignupForm";
+import PersonalLibrary from "./components/PersonalLibrary";
 
 const router = createBrowserRouter ([
     {
@@ -17,8 +19,16 @@ const router = createBrowserRouter ([
           element: <LoginPage />,
         },
         {
-          path: "/gamelibrary",
+          path: "/game-library",
           element: <GameLibrary />,
+        },
+        {
+            path: "/signup-form",
+            element: <SignupForm />
+        },
+        {
+          path: "/personal-page",
+          element: <PersonalLibrary />
         }
       ]
     }

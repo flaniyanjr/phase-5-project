@@ -117,7 +117,7 @@ class PlayerSignup(db.Model, SerializerMixin):
     name= db.Column(db.String)
     preferred_position= db.Column(db.String)
     user_id= db.Column(db.Integer, db.ForeignKey('users.id'))
-    pickup_game__id= db.Column(db.Integer, db.ForeignKey('pickup_games.id'))
+    pickup_game_id= db.Column(db.Integer, db.ForeignKey('pickup_games.id'))
 
     user= db.relationship('User', back_populates= 'player_signups')
     pickup_game= db.relationship('PickupGame', back_populates= 'player_signups')

@@ -42,6 +42,43 @@ class PickupGames(Resource):
 
 api.add_resource(PickupGames, '/api/v1/pickup_games')
 
+class PickupGamesById(Resource):
+    def patch(self, id):
+        params= request.json
+        game= PickupGame.query.get(id)
+        if not game:
+            return make_response({'error': 'Pickup game not found'}, 404)
+        for attr in params:
+            try:
+                setattr(game, attr, params[attr])
+            except ValueError as validation_error:
+                return make_response({'error': str(validation_error)}, 422)
+        db.session.commit()
+        return make_response(game.to_dict(), 200)
+    
+    def delete(self, id):
+        game= PickupGame.query.get(id)
+        db.session.delete(game)
+        db.session.commit()
+        return make_response('', 204)
+
+api.add_resource(PickupGamesById, '/api/v1/pickup_games/<int:id>')
+
+class PlayerSignups(Resource):
+    def post(self):
+        params= request.json
+        try:
+            new_signup= PlayerSignup(name= params['name'], preferred_position= params['preferred_position'], user_id= params['user_id'], pickup_game_id= params['pickup_game_id'])
+        except ValueError as validation_error:
+            return make_response({'error': str(validation_error)}, 422)
+        except KeyError as key_error:
+            return make_response({'error': f'A {key_error} must be included'}, 422)
+        db.session.add(new_signup)
+        db.session.commit()
+        return make_response(new_signup.to_dict(), 201)
+
+api.add_resource(PlayerSignups, '/api/v1/player_signups')
+
 @app.route('/api/v1/authorized')
 def authorized():
     try:
