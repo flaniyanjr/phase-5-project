@@ -1,7 +1,12 @@
-
+import {useNavigate, useOutletContext} from "react-router-dom"
+import {useState} from 'react'
 
 function GameCard({gameObj}) {
-    const {location, city, state, date, time, sport, image, total_attendees}= gameObj
+    const {location, city, state, date, time, sport, image, total_attendees, id}= gameObj
+
+    const {setCurrentGame}= useOutletContext()
+
+    const navigate= useNavigate()
 
     return(
         <div className= "card">
@@ -15,7 +20,10 @@ function GameCard({gameObj}) {
                 <p> Sport: {sport}</p>
                 <p> Total Attendees: {total_attendees}</p>
             </div>
-            <button>Register</button>
+            <button onClick= {() => {
+                setCurrentGame({gameObj})
+                navigate('/signupform')
+            }}>Register</button>
         </div>
     )
 }
