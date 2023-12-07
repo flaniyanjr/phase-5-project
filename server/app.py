@@ -65,6 +65,10 @@ class PickupGamesById(Resource):
 api.add_resource(PickupGamesById, '/api/v1/pickup_games/<int:id>')
 
 class PlayerSignups(Resource):
+    def get(self):
+        signup_list= [signup.to_dict() for signup in PlayerSignup.query.all()]
+        return make_response(signup_list, 200)
+
     def post(self):
         params= request.json
         try:

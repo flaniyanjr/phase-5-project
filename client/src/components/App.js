@@ -7,6 +7,7 @@ function App() {
   const [user, setUser]= useState(null)
   const [allGames, setAllGames] = useState([])
   const [currentGame, setCurrentGame] = useState('')
+  const [allSignups, setAllSignups]= useState([])
 
   useEffect(() => {
     fetch('/authorized')
@@ -26,10 +27,36 @@ function App() {
       if (r.ok) {
         r.json().then(games => setAllGames(games))
       } else {
-        console.log('error')
+        console.log('Failed to retrieve games')
       }
     })
   }, [])
+
+  useEffect(() => {
+    fetch('/player_signups')
+    .then(r => {
+      if (r.ok) {
+        r.json().then(signups => setAllSignups(signups))
+      } else {
+        console.log('Failed to retrieve signups')
+      }
+    })
+  })
+
+  let userSignups= []
+
+  if (user) {
+    if (user.player_signups) {
+      userSignups= allSignups.filter(signup => {
+        if (signup.user.id === user.id) {
+          return true
+        } else {
+          return false
+        }
+      })
+    }
+  }
+  
 
   function updateGameAttendees(newGame) {
     const updatedGamesList= allGames.map(gameObj => {
@@ -49,7 +76,8 @@ function App() {
     setAllGames,
     currentGame,
     setCurrentGame,
-    updateGameAttendees
+    updateGameAttendees,
+    userSignups
   }
 
   return(
