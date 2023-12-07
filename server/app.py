@@ -83,6 +83,15 @@ class PlayerSignups(Resource):
 
 api.add_resource(PlayerSignups, '/api/v1/player_signups')
 
+class PlayerSignupsById(Resource):
+    def delete(self, id):
+        signup= PlayerSignup.query.get(id)
+        db.session.delete(signup)
+        db.session.commit()
+        return make_response('', 204)
+
+api.add_resource(PlayerSignupsById, '/api/v1/player_signups/<int:id>')
+
 @app.route('/api/v1/authorized')
 def authorized():
     try:
