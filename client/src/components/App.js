@@ -41,7 +41,7 @@ function App() {
         console.log('Failed to retrieve signups')
       }
     })
-  })
+  }, [])
 
   let userSignups= []
 
