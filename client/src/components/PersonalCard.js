@@ -2,7 +2,7 @@ import { useOutletContext } from "react-router-dom";
 
 function PersonalCard({gameObj}) {
 
-    const {userSignups, removeSignup}= useOutletContext()
+    const {userSignups, removeSignup, allGames}= useOutletContext()
 
     const {location, city, state, date, time, sport, image, total_attendees, id}= gameObj
 
@@ -15,6 +15,14 @@ function PersonalCard({gameObj}) {
     })
 
     const targetSignup= targetSignupArray[0]
+
+    const targetAttendeeArray= allGames.filter(game => {
+        return game.id === id
+    })
+
+    const targetAttendeeGame= targetAttendeeArray[0]
+
+    const targetAttendeeTotal= targetAttendeeGame.total_attendees
 
     function handleDelete() {
         fetch(`/player_signups/${targetSignup.id}`, {
@@ -33,7 +41,7 @@ function PersonalCard({gameObj}) {
                 <p> Date: {date}</p>
                 <p> Time: {time}</p>
                 <p> Sport: {sport}</p>
-                <p> Total Attendees: {total_attendees}</p>
+                <p> Total Attendees: {targetAttendeeTotal}</p>
             </div>
             <button onClick={handleDelete}>Unregister</button>
         </div>
