@@ -1,9 +1,10 @@
 import { useOutletContext} from "react-router-dom";
 import {useState} from 'react'
+import CreatedGameCard from "./CreatedGameCard";
 
 function CreateGame() {
 
-    const {addNewGame}= useOutletContext()
+    const {addNewGame, createdGames}= useOutletContext()
 
     const initialState= {
         location: '',
@@ -17,13 +18,22 @@ function CreateGame() {
 
     const [gameData, setGameData]= useState(initialState)
 
+    let createdGameCards
+
+    if (createdGames) {
+        createdGameCards= createdGames.map(gameObj => {
+            return <CreatedGameCard key= {gameObj.id} gameObj= {gameObj}/>
+        })
+    } 
+
     function handleChange(e) {
         setGameData(current => {
             return {...current, [e.target.name] : e.target.value}
         })
     }
 
-    function handleSubmit() {
+    function handleSubmit(e) {
+        e.preventDefault()
         fetch('/pickup_games', {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
@@ -33,42 +43,46 @@ function CreateGame() {
         .then(newGame => {
             addNewGame(newGame)
         })
+        setGameData(initialState)
     }
 
     return(
-        <div className= "signup-form">
-            <h4>Create a Game</h4>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Location</label>
-                    <input type= 'text' name= 'location' value= {gameData.location} onChange= {handleChange}/>
-                </div>
-                <div>
-                    <label>City</label>
-                    <input type= 'text' name='city' value={gameData.city} onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>State</label>
-                    <input type= 'text' name='state' value={gameData.state} onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>Date</label>
-                    <input type= 'text' name='date' value={gameData.date} onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>Time</label>
-                    <input type= 'text' name='time' value={gameData.time} onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>Sport</label>
-                    <input type= 'text' name='sport' value={gameData.sport} onChange={handleChange}/>
-                </div>
-                <div>
-                    <label>Image</label>
-                    <input type= 'text' name='image' value={gameData.image} onChange={handleChange}/>
-                </div>
-                <button type='submit'>Create</button>
-            </form>
+        <div>
+            <div className= "signup-form">
+                <h4>Create a Game</h4>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label>Location</label>
+                        <input type= 'text' name= 'location' value= {gameData.location} onChange= {handleChange}/>
+                    </div>
+                    <div>
+                        <label>City</label>
+                        <input type= 'text' name='city' value={gameData.city} onChange={handleChange}/>
+                    </div>
+                    <div>
+                        <label>State</label>
+                        <input type= 'text' name='state' value={gameData.state} onChange={handleChange}/>
+                    </div>
+                    <div>
+                        <label>Date</label>
+                        <input type= 'text' name='date' value={gameData.date} onChange={handleChange}/>
+                    </div>
+                    <div>
+                        <label>Time</label>
+                        <input type= 'text' name='time' value={gameData.time} onChange={handleChange}/>
+                    </div>
+                    <div>
+                        <label>Sport</label>
+                        <input type= 'text' name='sport' value={gameData.sport} onChange={handleChange}/>
+                    </div>
+                    <div>
+                        <label>Image</label>
+                        <input type= 'text' name='image' value={gameData.image} onChange={handleChange}/>
+                    </div>
+                    <button type='submit'>Create</button>
+                </form>
+            </div>
+            {createdGameCards}
         </div>
     )
 }

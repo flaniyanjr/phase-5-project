@@ -8,6 +8,7 @@ function App() {
   const [allGames, setAllGames] = useState([])
   const [currentGame, setCurrentGame] = useState('')
   const [allSignups, setAllSignups]= useState([])
+  const [createdGames, setCreatedGames]= useState([])
 
   useEffect(() => {
     fetch('/authorized')
@@ -82,6 +83,18 @@ function App() {
 
   function addNewGame(newGame) {
     setAllGames(current => [...current, newGame])
+    setCreatedGames(current => [...current, newGame])
+  }
+
+  function deleteNewGame(id) {
+    const updatedGamesList= allGames.filter(gameObj => {
+      return gameObj.id !== id
+    })
+    const updatedCreatedList= createdGames.filter(gameObj => {
+      return gameObj.id !== id
+    })
+    setAllGames(updatedGamesList)
+    setCreatedGames(updatedCreatedList)
   }
 
   const context= {
@@ -95,7 +108,9 @@ function App() {
     userSignups,
     addNewSignup,
     removeSignup,
-    addNewGame
+    addNewGame,
+    createdGames,
+    deleteNewGame
   }
 
   return(
