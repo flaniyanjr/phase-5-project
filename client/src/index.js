@@ -8,6 +8,7 @@ import GameLibrary from "./components/GameLibrary"
 import LoginPage from "./components/LoginPage";
 import SignupForm from "./components/SignupForm";
 import PersonalLibrary from "./components/PersonalLibrary";
+import CreateGame from "./components/CreateGameForm";
 
 const router = createBrowserRouter ([
     {
@@ -29,6 +30,10 @@ const router = createBrowserRouter ([
         {
           path: "/personal-page",
           element: <PersonalLibrary />
+        },
+        {
+          path: "/create-game",
+          element: <CreateGame />
         }
       ]
     }

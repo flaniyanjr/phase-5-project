@@ -80,6 +80,10 @@ function App() {
     setAllSignups(updatedSignupList)
   }
 
+  function addNewGame(newGame) {
+    setAllGames(current => [...current, newGame])
+  }
+
   const context= {
     user,
     setUser,
@@ -90,7 +94,8 @@ function App() {
     updateGameAttendees,
     userSignups,
     addNewSignup,
-    removeSignup
+    removeSignup,
+    addNewGame
   }
 
   return(
