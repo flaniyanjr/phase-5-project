@@ -26,7 +26,7 @@ function NavBar() {
                 to="/create-game"
                 className="nav-link"
             >
-                Create Game
+                Created Games
             </NavLink>
         </nav>
     )
