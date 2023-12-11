@@ -4,8 +4,6 @@ import CreatedGameCard from "./CreatedGameCard";
 
 function CreateGame() {
 
-    const {addNewGame, createdGames}= useOutletContext()
-
     const initialState= {
         location: '',
         city: '',
@@ -17,6 +15,22 @@ function CreateGame() {
     }
 
     const [gameData, setGameData]= useState(initialState)
+    const {addNewGame, createdGames}= useOutletContext()
+
+    const currentDate= new Date() 
+    const day= currentDate.getDate()
+    const month= currentDate.getMonth() + 1
+    const year= currentDate.getFullYear()
+
+    if (day < 10) {
+        day = '0' + day;
+     }
+
+     if (month < 10) {
+        month = '0' + month;
+     } 
+
+    const today = year + '-' + month + '-' + day;
 
     let createdGameCards
 
@@ -65,11 +79,11 @@ function CreateGame() {
                     </div>
                     <div>
                         <label>Date</label>
-                        <input type= 'text' name='date' value={gameData.date} onChange={handleChange}/>
+                        <input type= 'date' name='date' value={gameData.date} min={today} onChange={handleChange}/>
                     </div>
                     <div>
                         <label>Time</label>
-                        <input type= 'text' name='time' value={gameData.time} onChange={handleChange}/>
+                        <input type= 'time' name='time' value={gameData.time} onChange={handleChange}/>
                     </div>
                     <div>
                         <label>Sport</label>
