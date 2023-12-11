@@ -14,7 +14,7 @@ function LoginPage() {
           method: 'DELETE'
         }).then((resp) => {
           if (resp.ok) {
-            // handle logount on frontend
+            // handle logout on frontend
             setUser(null)
             // navigate to route, we already have it set to go back to create account page in ours
           }
@@ -26,7 +26,7 @@ function LoginPage() {
       }
 
       return <div>
-      in the site!
+      Welcome
       <Button varient='contained' onClick={handleLogout}>Logout</Button>
       </div>
 }

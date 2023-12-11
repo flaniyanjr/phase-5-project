@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext} from "react-router-dom";
 
 function SignupForm() {
     const {user, currentGame, updateGameAttendees, addNewSignup}= useOutletContext()
 
     const [signupName, setSignupName]= useState('')
     const [position, setPosition]= useState('')
+    const[submitted, setSubmitted]= useState(false)
 
     function handleSignupName(e) {
         setSignupName(e.target.value)
@@ -42,6 +43,7 @@ function SignupForm() {
         .then(newGame => updateGameAttendees(newGame))
         setSignupName('')
         setPosition('')
+        setSubmitted(true)
     }
 
 
@@ -59,6 +61,7 @@ function SignupForm() {
                 </div>
                 <button type='submit'>Register</button>
             </form>
+            {submitted ? <p>Signup Complete!</p> : null}
         </div>
     )
 }

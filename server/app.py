@@ -115,7 +115,7 @@ def login():
             session['user_id']= user.id
             return make_response({'user': user.to_dict()}, 200)
         else:
-            return make_response({'error': 'incorrect password'})
+            return make_response({'error': 'incorrect password'}, 400)
     except:
         return make_response({'error': 'username incorrect'}, 401)
 
