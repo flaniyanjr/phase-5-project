@@ -97,6 +97,25 @@ function App() {
     setCreatedGames(updatedCreatedList)
   }
 
+  function updateNewGame(newGame) {
+    const updatedGameList= allGames.map(gameObj => {
+      if (gameObj.id === newGame.id) {
+        return newGame
+      } else {
+        return gameObj
+      }
+    })
+    const updatedCreatedList= createdGames.map(gameObj => {
+      if (gameObj.id === newGame.id) {
+        return newGame
+      } else {
+        return gameObj
+      }
+    })
+    setAllGames(updatedGameList)
+    setCreatedGames(updatedCreatedList)
+  }
+
   const context= {
     user,
     setUser,
@@ -110,7 +129,8 @@ function App() {
     removeSignup,
     addNewGame,
     createdGames,
-    deleteNewGame
+    deleteNewGame,
+    updateNewGame
   }
 
   return(

@@ -8,9 +8,15 @@ function Signup({setUser}) {
     const [signup, setSignup]= useState(true)
 
     const signupSchema= yup.object().shape({
-        username: yup.string().min(5, 'Too short!').max(15, 'Too Long!').required('Required'),
-        email: yup.string().email('Invalid email').required('Required'),
-        password: yup.string().min(5, 'Too short!').max(15, 'Too Long!').required('Required')
+        username: yup.string().min(5, 'Username is too short!').max(15, 'Username is too Long!').required('Username Required'),
+        email: yup.string().email('Invalid email').required('Email Required'),
+        password: yup.string().min(5, 'Password is too short!').max(15, 'Password is too Long!').required('Password Required'),
+        passwordConfirmation: yup.string().required('Confirm Password').oneOf([yup.ref('password')], 'Password must match')
+    })
+
+    const loginSchema= yup.object().shape({
+        username: yup.string(),
+        password: yup.string()
     })
 
 
@@ -18,9 +24,10 @@ function Signup({setUser}) {
         initialValues: {
             username: '',
             email: '',
-            password: ''
+            password: '',
+            passwordConfirmation: ''
         },
-        validationSchema: signupSchema,
+        validationSchema: signup ? signupSchema: loginSchema,
         onSubmit: (values) => {
             const endpoint= signup ? '/users' : '/login'
             fetch(endpoint, {
@@ -49,7 +56,7 @@ function Signup({setUser}) {
 
     return(
         <Box>
-            {/* {formik.errors} */}
+            {/* {Object.keys(formik.errors).map((key) => <li>{formik.errors[key]}</li>)} */}
 
             <Button onClick={toggleSignup}>{signup ? 'Login' : 'Register'}</Button>
         
@@ -57,28 +64,45 @@ function Signup({setUser}) {
                 <TextField
                 id="username" 
                 label="Username" 
-                variant="outlined" 
+                variant="outlined"
+                error= {!!formik.errors.username} 
                 required
                 value={formik.values.username}
                 onChange={formik.handleChange}
                 />
+                {formik.errors.username && <li>{formik.errors.username}</li>}
                 {signup && <TextField 
                     id="email" 
                     label="email" 
                     variant="outlined" 
+                    error= {!!formik.errors.email}
                     required 
                     value= {formik.values.email} 
                     onChange={formik.handleChange}
                 />}
+                {formik.errors.email && <li>{formik.errors.email}</li>}
                 <TextField 
                     id="password" 
                     label="password" 
                     type="password"
                     variant="outlined" 
+                    error= {!!formik.errors.password}
                     required 
                     value={formik.values.password} 
                     onChange={formik.handleChange}
                 />
+                {formik.errors.password && <li>{formik.errors.password}</li>}
+                {signup && <TextField 
+                    id="passwordConfirmation" 
+                    label="passwordConfirmation" 
+                    type="password"
+                    variant="outlined" 
+                    error= {!!formik.errors.passwordConfirmation}
+                    required 
+                    value={formik.values.passwordConfirmation} 
+                    onChange={formik.handleChange}
+                />}
+                {formik.errors.passwordConfirmation && <li>{formik.errors.passwordConfirmation}</li>}
                 <Button variant='contained' type='submit'>Submit</Button>
             </form>
         </Box>
