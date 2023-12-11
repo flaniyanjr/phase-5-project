@@ -3,7 +3,7 @@ import { useOutletContext} from "react-router-dom";
 function CreatedGameCard({gameObj}) {
     const {location, city, state, date, time, sport, image, total_attendees, id}= gameObj
 
-    const {deleteNewGame}= useOutletContext()
+    const {deleteNewGame, allGames}= useOutletContext()
 
     function handleDelete() {
         fetch(`/pickup_games/${id}`, {
@@ -11,6 +11,12 @@ function CreatedGameCard({gameObj}) {
         })
         deleteNewGame(id)
     }
+
+    const targetAttendeeArray= allGames.filter(game => {
+        return game.id === id
+    })
+    const targetAttendeeGame= targetAttendeeArray[0]
+    const targetAttendeeTotal= targetAttendeeGame.total_attendees
 
     return(
         <div className= "card">
@@ -22,7 +28,7 @@ function CreatedGameCard({gameObj}) {
                 <p> Date: {date}</p>
                 <p> Time: {time}</p>
                 <p> Sport: {sport}</p>
-                <p> Total Attendees: {total_attendees}</p>
+                <p> Total Attendees: {targetAttendeeTotal}</p>
             </div>
             <button onClick={handleDelete}>Delete</button>
         </div>
