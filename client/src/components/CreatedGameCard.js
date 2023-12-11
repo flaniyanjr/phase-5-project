@@ -23,7 +23,7 @@ function CreatedGameCard({gameObj}) {
             <h2>{location}</h2>
             <img className= "location-image" src= {image} alt= {location}/>
             <div>
-                <p>City: {city}</p>
+                <p> City: {city}</p>
                 <p> State: {state}</p>
                 <p> Date: {date}</p>
                 <p> Time: {time}</p>
