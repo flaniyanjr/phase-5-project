@@ -8,6 +8,7 @@ function CreatedGameCard({gameObj}) {
     const [newDate, setNewDate]= useState(date)
     const [newTime, setNewTime]= useState(time)
     const [showUpdate, setShowUpdate]= useState(false)
+    const [submitted, setSubmitted]= useState(false)
 
     function handleDelete() {
         fetch(`/pickup_games/${id}`, {
@@ -36,10 +37,13 @@ function CreatedGameCard({gameObj}) {
         })
         .then(r => r.json())
         .then(newGame => updateNewGame(newGame))
+        setSubmitted(true)
+        setShowUpdate(false)
     }
 
     function handleShowUpdate() {
         setShowUpdate(current => !current)
+        setSubmitted(false)
     }
 
     const targetAttendeeArray= allGames.filter(game => {
@@ -61,6 +65,7 @@ function CreatedGameCard({gameObj}) {
                 <p> Total Attendees: {targetAttendeeTotal}</p>
             </div>
             <button onClick={handleDelete}>Delete</button>
+            {submitted ? <p>Updated!</p> : null}
             {showUpdate ? 
                 <form onSubmit={handleSubmit}>
                 <div>
