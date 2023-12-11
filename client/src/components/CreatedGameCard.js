@@ -52,6 +52,21 @@ function CreatedGameCard({gameObj}) {
     const targetAttendeeGame= targetAttendeeArray[0]
     const targetAttendeeTotal= targetAttendeeGame.total_attendees
 
+    const currentDate= new Date() 
+    const day= currentDate.getDate()
+    const month= currentDate.getMonth() + 1
+    const year= currentDate.getFullYear()
+
+    if (day < 10) {
+        day = '0' + day;
+     }
+
+     if (month < 10) {
+        month = '0' + month;
+     } 
+
+    const today = year + '-' + month + '-' + day;
+
     return(
         <div className= "card">
             <h2>{location}</h2>
@@ -70,7 +85,7 @@ function CreatedGameCard({gameObj}) {
                 <form onSubmit={handleSubmit}>
                 <div>
                     <label>Update Date</label>
-                    <input type= 'date' name='date' value= {newDate} onChange={handleDateChange}/>
+                    <input type= 'date' name='date' value= {newDate} min={today} onChange={handleDateChange}/>
                 </div>
                 <div>
                     <label>Update Time</label>
