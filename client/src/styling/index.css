@@ -104,3 +104,12 @@
 .signup-form button:hover{
   background-color: #b7705c;
 }
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 100%;
+  min-width: 50%;
+  justify-content: center;
+  align-items: flex-start;
+}

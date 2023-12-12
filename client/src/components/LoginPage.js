@@ -26,7 +26,7 @@ function LoginPage() {
       }
 
       return <div>
-      Welcome
+      <h2>Welcome {user.username}</h2>
       <Button varient='contained' onClick={handleLogout}>Logout</Button>
       </div>
 }
