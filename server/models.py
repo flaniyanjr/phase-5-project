@@ -31,8 +31,8 @@ class User(db.Model, SerializerMixin):
         encrypted_password_object= bcrypt.generate_password_hash(byte_object)
         self._password_hash= encrypted_password_object.decode('utf-8')
 
-def authenticate(self, password):
-    return bcrypt.check_password_hash(self.password_hash, password.encode('utf-8'))
+    def authenticate(self, password):
+        return bcrypt.check_password_hash(self.password_hash, password.encode('utf-8'))
 
 class PickupGame(db.Model, SerializerMixin):
     __tablename__= 'pickup_games'
