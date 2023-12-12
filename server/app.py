@@ -111,6 +111,8 @@ def login():
     try:
         user= User.query.filter_by(username= params['username']).first()
         password= params['password']
+        print(user)
+        print(password)
         if user.authenticate(password):
             session['user_id']= user.id
             return make_response({'user': user.to_dict()}, 200)
