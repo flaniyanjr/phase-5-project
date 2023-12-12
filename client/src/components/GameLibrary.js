@@ -7,12 +7,33 @@ function GameLibrary() {
 
     const {allGames}= useOutletContext()
     const [searchInput, setSearchInput]= useState('')
+    const [sort, setSort] = useState('')
 
     function handleSearchInput(e) {
         setSearchInput(e.target.value)
     }
 
-    const filteredGames= allGames.filter(gameObj => {
+    function handleSort(e){
+        setSort(e.target.value)
+    }
+
+    let sortedGames = []
+
+    switch(sort){
+        case '':
+            sortedGames= allGames.sort((a,b) => a.id > b.id ? 1 : -1)
+            break
+        case 'date':
+            sortedGames = allGames.sort((a,b) => a.date > b.date ? 1 : -1)
+            break
+        case 'time':
+            sortedGames = allGames.sort((a,b) => a.time > b.time ? 1 : -1)
+            break
+        case 'attendance':
+            sortedGames= allGames.sort((a,b) => a.total_attendees - b.total_attendees)
+    }
+
+    const filteredGames= sortedGames.filter(gameObj => {
         return gameObj.sport.toLowerCase().includes(searchInput.toLowerCase())
     })
 
@@ -24,15 +45,25 @@ function GameLibrary() {
     return(
         <div>
             <div className="container">
-            <label>Search by Sport:</label>
-            <input
-                type="text"
-                id="search"
-                placeholder="Type a sport name..."
-                value={searchInput}
-                onChange={handleSearchInput}
-            />
+                <label>Search by Sport:</label>
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="Type a sport name..."
+                    value={searchInput}
+                    onChange={handleSearchInput}
+                />
             </div>
+            <div className= 'container'>
+                <label>Sort:</label>
+                <select name="sort" onChange={handleSort}>
+                    <option value=''></option>
+                    <option value='date'>date</option>
+                    <option value='time'>time</option>
+                    <option value='attendance'>attendance</option>
+                </select>
+            </div>
+            
             {gameCards}
         </div>
     )

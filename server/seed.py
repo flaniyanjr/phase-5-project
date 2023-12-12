@@ -33,11 +33,11 @@ if __name__ == '__main__':
 
         game4= PickupGame(location= 'Venice Beach Courts', city= 'Los Anegles', state= 'CA', date= '2023-12-28', time= '13:00', sport= 'Basketball', image= 'https://i.pinimg.com/originals/d9/7f/1d/d97f1d658ed51fd2b3bca996cacfb2dc.jpg', total_attendees= 51)
 
-        game5= PickupGame(location= 'Met Oval Field', city= 'New York', state= 'NY', date= '2024-1-12', time= '10:00', sport= 'Soccer', image= 'https://images.squarespace-cdn.com/content/v1/515e1bace4b0bca14d7a6ed3/1589414655900-A3UKH3L0A9HL2RUWYOOV/IMG_7929+2.jpg?format=1000w', total_attendees= 42)
+        game5= PickupGame(location= 'Met Oval Field', city= 'New York', state= 'NY', date= '2024-01-12', time= '10:00', sport= 'Soccer', image= 'https://images.squarespace-cdn.com/content/v1/515e1bace4b0bca14d7a6ed3/1589414655900-A3UKH3L0A9HL2RUWYOOV/IMG_7929+2.jpg?format=1000w', total_attendees= 42)
 
         game6= PickupGame(location= 'The Backyard Rink', city= 'Saint Paul', state= 'MN', date= '2023-12-24', time= '13:30', sport= 'Hockey', image= 'https://mybackyardsports.com/wp-content/uploads/bfi_thumb/rink2-157eiga10ycnqoa5gt7sg1s7cmvqc8j8jfr3al0o8fqv4tg6.jpg', total_attendees= 102)
 
-        game7= PickupGame(location= 'Clothier Field', city= 'Swarthmore', state= 'PA', date= '2023-12-20', time= '14:45', sport= 'Soccer', image= 'https://pbs.twimg.com/media/E5S3mB1WYAEJI90?format=jpg&name=4096x4096', total_attendees= 18)
+        game7= PickupGame(location= 'Clothier Field', city= 'Swarthmore', state= 'PA', date= '2023-12-22', time= '14:45', sport= 'Soccer', image= 'https://pbs.twimg.com/media/E5S3mB1WYAEJI90?format=jpg&name=4096x4096', total_attendees= 18)
 
         game8= PickupGame(location= 'Cardozo High School', city='Washington', state= 'DC', date= '2023-12-29', time= '11:00', sport= 'Football', image= 'https://cdn18.picryl.com/photo/2019/10/05/youth-football-game-at-cardozo-senior-high-school-1200-clifton-st-nw-washington-387444-1024.jpg', total_attendees= 22)
 
