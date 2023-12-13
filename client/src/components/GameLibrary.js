@@ -44,23 +44,25 @@ function GameLibrary() {
 
     return(
         <div>
-            <div className="container">
-                <input
-                    type="text"
-                    id="search"
-                    placeholder="Search by sport..."
-                    value={searchInput}
-                    onChange={handleSearchInput}
-                />
-            </div>
-            <div className= 'container'>
-                <label id= 'sort-text'>Sort:</label>
-                <select name="sort" onChange={handleSort} id='sort-box'>
-                    <option value=''></option>
-                    <option value='date'>date</option>
-                    <option value='time'>time</option>
-                    <option value='attendance'>attendance</option>
-                </select>
+            <div className= 'search-sort-container'>
+                <div className="container">
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="Search by sport..."
+                        value={searchInput}
+                        onChange={handleSearchInput}
+                    />
+                </div>
+                <div className= 'container'>
+                    <label id= 'sort-text'>Sort:</label>
+                    <select name="sort" onChange={handleSort} id='sort-box'>
+                        <option value=''></option>
+                        <option value='date'>date</option>
+                        <option value='time'>time</option>
+                        <option value='attendance'>attendance</option>
+                    </select>
+                </div>
             </div>
             
             {gameCards}

@@ -44,9 +44,23 @@
 
 .user-info{
   position: absolute; 
-  top: 60px;
+  top: 65px;
   right:20px; 
   border: 2px solid white;
   padding: 5px;
   color: white
+}
+
+#logout-button {
+    position: absolute; 
+    top: 20px;
+    right:20px; 
+    /* border: 2px solid black; */
+    padding: 5px;
+    color: white;
+    font-family: "Marcellus";
+}
+
+#logout-button:hover {
+  color: blue
 }

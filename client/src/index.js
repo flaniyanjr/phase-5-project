@@ -5,7 +5,6 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import ReactDOM from "react-dom/client";
 import GameLibrary from "./components/GameLibrary"
-import LoginPage from "./components/LoginPage";
 import SignupForm from "./components/SignupForm";
 import PersonalLibrary from "./components/PersonalLibrary";
 import CreateGame from "./components/CreateGameForm";
@@ -15,10 +14,6 @@ const router = createBrowserRouter ([
       path: "/",
       element: <App/>,
       children: [
-        {
-          path: "/",
-          element: <LoginPage />,
-        },
         {
           path: "/game-library",
           element: <GameLibrary />,
