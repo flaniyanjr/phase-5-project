@@ -48,7 +48,7 @@ function GameLibrary() {
                 <div className="container">
                     <input
                         type="text"
-                        id="search"
+                        className="search"
                         placeholder="Search by sport..."
                         value={searchInput}
                         onChange={handleSearchInput}
