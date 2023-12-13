@@ -83,15 +83,15 @@ function CreatedGameCard({gameObj}) {
             {submitted ? <p>Updated!</p> : null}
             {showUpdate ? 
                 <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Update Date</label>
-                    <input type= 'date' name='date' value= {newDate} min={today} onChange={handleDateChange}/>
-                </div>
-                <div>
-                    <label>Update Time</label>
-                    <input type= 'time' name='time' value={newTime} onChange={handleTimeChange}/>
-                </div>
-                <button className='submit-button' type='submit'>Submit</button>
+                    <div>
+                        <label id= 'update-date-text'>Update Date</label>
+                        <input id= 'update-date-input' type= 'date' name='date' value= {newDate} min={today} onChange={handleDateChange}/>
+                    </div>
+                    <div>
+                        <label id= 'update-time-text'>Update Time</label>
+                        <input id= 'update-time-input' type= 'time' name='time' value={newTime} onChange={handleTimeChange}/>
+                    </div>
+                    <button className='submit-button' type='submit'>Submit</button>
             </form>
             : null}
             

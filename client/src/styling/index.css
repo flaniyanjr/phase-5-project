@@ -114,6 +114,7 @@ body {
     height:20px;
     font-size:11pt;
     padding: 0.2%;
+    margin-left: 2%;
 }
 
 .signup-field {
@@ -183,4 +184,25 @@ body {
 
 .submit-button {
   cursor: pointer;
+}
+
+#update-date-input {
+  margin-top: 2%;
+  margin-left: 2%;
+  font-family: "Marcellus";
+}
+
+#update-date-text {
+  font-family: "Marcellus";
+}
+
+#update-time-input {
+  margin-top: 1%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  font-family: "Marcellus";
+}
+
+#update-time-text {
+  font-family: "Marcellus";
 }
