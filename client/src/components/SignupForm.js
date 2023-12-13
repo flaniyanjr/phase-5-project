@@ -48,7 +48,7 @@ function SignupForm() {
 
 
     return(
-        <div className= "signup-form">
+        <div className= "create-game-form">
             <h4>Signup Form</h4>
             <form onSubmit={handleSubmit}>
                 <div>
