@@ -10,7 +10,7 @@ function Signup({setUser}) {
     const signupSchema= yup.object().shape({
         username: yup.string().min(5, 'Username is too short!').max(15, 'Username is too Long!').required('Username Required'),
         email: yup.string().email('Invalid email').required('Email Required'),
-        password: yup.string().min(5, 'Password is too short!').max(15, 'Password is too Long!').required('Password Required'),
+        password: yup.string().min(5, 'Password is too short!').required('Password Required'),
         passwordConfirmation: yup.string().required('Confirm Password').oneOf([yup.ref('password')], 'Password must match')
     })
 

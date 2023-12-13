@@ -62,7 +62,7 @@ function CreateGame() {
 
     return(
         <div>
-            <div className= "signup-form">
+            <div className= "create-game-form">
                 <h4>Create a Game</h4>
                 <form onSubmit={handleSubmit}>
                     <div>

@@ -18,6 +18,10 @@
     border-radius: 5px;
 }
 
+.active {
+  background: #E34234;
+}
+
 #header-img {
   max-width: 75%;
   max-height: 75%;
