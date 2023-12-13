@@ -55,56 +55,69 @@ function Signup({setUser}) {
     }
 
     return(
-        <Box>
+        <Box className= 'signup-container'>
             {/* {Object.keys(formik.errors).map((key) => <li>{formik.errors[key]}</li>)} */}
 
-            <Button onClick={toggleSignup}>{signup ? 'Login' : 'Register'}</Button>
-        
-            <form onSubmit={formik.handleSubmit}>
-                <TextField
-                id="username" 
-                label="Username" 
-                variant="outlined"
-                error= {!!formik.errors.username} 
-                required
-                value={formik.values.username}
-                onChange={formik.handleChange}
-                />
-                {formik.errors.username && <li>{formik.errors.username}</li>}
-                {signup && <TextField 
-                    id="email" 
-                    label="email" 
-                    variant="outlined" 
-                    error= {!!formik.errors.email}
-                    required 
-                    value= {formik.values.email} 
+            <div className= 'signup-field form'>
+                <Button onClick={toggleSignup} id='signup-button'>{signup ? 'Login' : 'Register'}</Button>
+            
+                <form onSubmit={formik.handleSubmit}>
+                    <TextField
+                    id="username" 
+                    label="Username" 
+                    variant="outlined"
+                    error= {!!formik.errors.username} 
+                    helperText= {formik.errors.username}
+                    required
+                    value={formik.values.username}
                     onChange={formik.handleChange}
-                />}
-                {formik.errors.email && <li>{formik.errors.email}</li>}
-                <TextField 
-                    id="password" 
-                    label="password" 
-                    type="password"
-                    variant="outlined" 
-                    error= {!!formik.errors.password}
-                    required 
-                    value={formik.values.password} 
-                    onChange={formik.handleChange}
-                />
-                {formik.errors.password && <li>{formik.errors.password}</li>}
-                {signup && <TextField 
-                    id="passwordConfirmation" 
-                    label="passwordConfirmation" 
-                    type="password"
-                    variant="outlined" 
-                    error= {!!formik.errors.passwordConfirmation}
-                    required 
-                    value={formik.values.passwordConfirmation} 
-                    onChange={formik.handleChange}
-                />}
-                {formik.errors.passwordConfirmation && <li>{formik.errors.passwordConfirmation}</li>}
-                <Button variant='contained' type='submit'>Submit</Button>
-            </form>
+                    className='signup-input'
+                    />
+                    {/* {formik.errors.username && <li>{formik.errors.username}</li>} */}
+                    {signup && <TextField 
+                        id="email" 
+                        label="email" 
+                        variant="outlined" 
+                        color= 'secondary'
+                        error= {!!formik.errors.email}
+                        helperText= {formik.errors.email}
+                        required 
+                        value= {formik.values.email} 
+                        onChange={formik.handleChange}
+                        className='signup-input'
+                    />}
+                    {/* {formik.errors.email && <li>{formik.errors.email}</li>} */}
+                    <TextField 
+                        id="password" 
+                        label="password" 
+                        type="password"
+                        variant="outlined" 
+                        error= {!!formik.errors.password}
+                        helperText= {formik.errors.password}
+                        required 
+                        value={formik.values.password} 
+                        onChange={formik.handleChange}
+                        className='signup-input'
+                    />
+                    {/* {formik.errors.password && <li>{formik.errors.password}</li>} */}
+                    {signup && <TextField 
+                        id="passwordConfirmation" 
+                        label="re-enter password" 
+                        type="password"
+                        variant="outlined" 
+                        error= {!!formik.errors.passwordConfirmation}
+                        helperText= {formik.errors.passwordConfirmation}
+                        required 
+                        value={formik.values.passwordConfirmation} 
+                        onChange={formik.handleChange}
+                        className='signup-input'
+                    />}
+                    {/* {formik.errors.passwordConfirmation && <li>{formik.errors.passwordConfirmation}</li>} */}
+                    <div id= 'signup-submit' >
+                        <Button id= 'signup-submit' variant='contained' type='submit'>Submit</Button>
+                    </div>
+                </form>
+            </div>
         </Box>
     )
 }

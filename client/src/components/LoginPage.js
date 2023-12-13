@@ -26,8 +26,7 @@ function LoginPage() {
       }
 
       return <div>
-      <h2>Welcome {user.username}</h2>
-      <Button varient='contained' onClick={handleLogout}>Logout</Button>
+      <Button varient='contained' onClick={handleLogout} className= 'logout-button'>Logout</Button>
       </div>
 }
 

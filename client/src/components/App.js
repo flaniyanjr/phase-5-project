@@ -135,7 +135,7 @@ function App() {
 
   return(
     <div>
-      <Header />
+      <Header user= {user}/>
       <Outlet context= {context}/>
     </div>
   )

@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     justify-content: space-evenly;
-    background: black;
+    background: #1B1212;
     padding: 5px;
   }
 
@@ -16,4 +16,33 @@
     color: white;
     padding: 12px 25px;
     border-radius: 5px;
+}
+
+#header-img {
+  max-width: 75%;
+  max-height: 75%;
+  object-fit: contain;
+  opacity: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.0% 2.5% 0% 2.5%;
+}
+
+.logo-container {
+  height: 150px;
+}
+
+.title {
+  color: darkred;
+  text-align: center;
+}
+
+.user-info{
+  position: absolute; 
+  top: 60px;
+  right:20px; 
+  border: 2px solid white;
+  padding: 5px;
+  color: white
 }
