@@ -93,7 +93,7 @@ function CreateGame() {
                         <label>Image</label>
                         <input type= 'text' name='image' value={gameData.image} onChange={handleChange}/>
                     </div>
-                    <button type='submit'>Create</button>
+                    <button className= 'submit-button' type='submit'>Create</button>
                 </form>
             </div>
             {createdGameCards}

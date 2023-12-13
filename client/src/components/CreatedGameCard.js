@@ -79,7 +79,7 @@ function CreatedGameCard({gameObj}) {
                 <p> Sport: {sport}</p>
                 <p> Total Attendees: {targetAttendeeTotal}</p>
             </div>
-            <button onClick={handleDelete}>Delete</button>
+            <button className= 'submit-button' onClick={handleDelete}>Delete</button>
             {submitted ? <p>Updated!</p> : null}
             {showUpdate ? 
                 <form onSubmit={handleSubmit}>
@@ -91,7 +91,7 @@ function CreatedGameCard({gameObj}) {
                     <label>Update Time</label>
                     <input type= 'time' name='time' value={newTime} onChange={handleTimeChange}/>
                 </div>
-                <button type='submit'>Submit</button>
+                <button className='submit-button' type='submit'>Submit</button>
             </form>
             : null}
             
