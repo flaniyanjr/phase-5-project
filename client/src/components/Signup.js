@@ -7,6 +7,7 @@ import { useOutletContext } from 'react-router-dom';
 function Signup() {
 
     const [signup, setSignup]= useState(true)
+    const [badLogin, setBadLogin]= useState(false)
     const {setUser}= useOutletContext()
 
     const signupSchema= yup.object().shape({
@@ -42,11 +43,10 @@ function Signup() {
                 if (resp.ok) {
                     resp.json().then(({ user }) => {
                         setUser(user)
-                        // navigate into site
                     })
                 } else {
-                    
                     console.log('errors? handle them')
+                    setBadLogin(true)
                 }
             })
         }
@@ -118,6 +118,7 @@ function Signup() {
                     <div id= 'signup-submit' >
                         <Button id= 'signup-submit' variant='contained' type='submit'>Submit</Button>
                     </div>
+                    {badLogin ? <h2 id= 'login-error-message'>Incorrent username or password. Please try again</h2> : null}
                 </form>
             </div>
         </Box>
