@@ -15,7 +15,10 @@ from models import User, PickupGame, PlayerSignup
 class Users(Resource):
     def post(self):
         params= request.json
-        user= User(username= params['username'], email= params['email'], password_hash= params['password'])
+        try:
+            user= User(username= params['username'], email= params['email'], password_hash= params['password'])
+        except ValueError as validation_error:
+            return make_response({'error' : str(validation_error)}, 422)
         db.session.add(user)
         db.session.commit()
         session['user_id']= user.id
