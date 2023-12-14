@@ -4,7 +4,9 @@ import sportlogo2 from '../img/sportlogo2.jpg'
 function Homepage() {
     return(
         <div>
-            <h1 className= 'welcome-message'>Welcome to PickupPal</h1>
+            <div className= 'welcome-message-container'>
+                <h3 className= 'welcome-message'>PickupPal</h3>
+            </div>
             <div className= 'logo-three-image-containter'>
                 <img id= 'logo-three' src={sportlogo3} alt='sports logo'/>
             </div>
