@@ -24,7 +24,7 @@ function Header({user, setUser}) {
         <div>
             <NavBar />
             <div>
-                {user ? <Button varient='contained' onClick={handleLogout} id= 'logout-button'>Logout</Button> : <Signup setUser={setUser} />}
+                {user ? <Button varient='contained' onClick={handleLogout} id= 'logout-button'>Logout</Button> : null}
                 {user ? <p className="user-info"><b>Welcome: {user.username}</b></p>: null}
             </div>
             <div className= 'logo-container'>

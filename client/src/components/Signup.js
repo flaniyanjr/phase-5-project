@@ -2,10 +2,12 @@ import { Box, Button, FormControl, TextField, InputLabel } from '@mui/material';
 import {useFormik} from 'formik'
 import * as yup from 'yup';
 import {useState} from 'react'
+import { useOutletContext } from 'react-router-dom';
 
-function Signup({setUser}) {
+function Signup() {
 
     const [signup, setSignup]= useState(true)
+    const {setUser}= useOutletContext()
 
     const signupSchema= yup.object().shape({
         username: yup.string().min(5, 'Username is too short!').max(15, 'Username is too Long!').required('Username Required'),
@@ -59,7 +61,7 @@ function Signup({setUser}) {
             {/* {Object.keys(formik.errors).map((key) => <li>{formik.errors[key]}</li>)} */}
 
             <div className= 'signup-field form'>
-                <Button onClick={toggleSignup} id='signup-button'>{signup ? 'Login' : 'Register'}</Button>
+                <Button onClick={toggleSignup} id='signup-button'>{signup ? 'Click to Login' : 'CLick to Register'}</Button>
             
                 <form onSubmit={formik.handleSubmit}>
                     <TextField
