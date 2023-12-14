@@ -211,3 +211,8 @@ body {
   color:white;
   text-align: center;
 }
+
+#login-error-message {
+  color: white;
+  font-family: "Marcellus";
+}
