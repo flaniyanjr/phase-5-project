@@ -7,7 +7,7 @@
 
 body {
   background-color: black;
-  background-image: url("https://www.designbolts.com/wp-content/uploads/2012/11/Trippy-little-Black-gradients-Seamless-Pattern.jpg");
+  /* background-image: url("https://www.designbolts.com/wp-content/uploads/2012/11/Trippy-little-Black-gradients-Seamless-Pattern.jpg"); */
 }
 
 .card {
@@ -205,11 +205,6 @@ body {
 
 #update-time-text {
   font-family: "Marcellus";
-}
-
-.welcome-message {
-  color:white;
-  text-align: center;
 }
 
 #login-error-message {
