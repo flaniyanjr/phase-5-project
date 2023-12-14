@@ -206,3 +206,8 @@ body {
 #update-time-text {
   font-family: "Marcellus";
 }
+
+.welcome-message {
+  color:white;
+  text-align: center;
+}

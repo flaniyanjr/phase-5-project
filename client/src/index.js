@@ -8,12 +8,17 @@ import GameLibrary from "./components/GameLibrary"
 import SignupForm from "./components/SignupForm";
 import PersonalLibrary from "./components/PersonalLibrary";
 import CreateGame from "./components/CreateGameForm";
+import MainScreen from "./components/MainScreen";
 
 const router = createBrowserRouter ([
     {
       path: "/",
       element: <App/>,
       children: [
+        {
+          path: "/",
+          element: <MainScreen />,
+        },
         {
           path: "/game-library",
           element: <GameLibrary />,
