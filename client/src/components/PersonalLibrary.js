@@ -25,6 +25,8 @@ function PersonalLibrary() {
         })
     }
 
+    const totalSignups= userSignups.length
+
     return(
         <div>
             <div className= 'personal-search-container'>
@@ -37,6 +39,9 @@ function PersonalLibrary() {
                     className="search"
                     />
                 </div>
+            </div>
+            <div className="container">
+                <h4 id= 'signup-total'>Total Games: {totalSignups}</h4>
             </div>
             {userSignups ? gameCards : null}
         </div>
