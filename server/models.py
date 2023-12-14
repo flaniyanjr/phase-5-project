@@ -20,6 +20,17 @@ class User(db.Model, SerializerMixin):
 
     pickup_games= association_proxy('player_signups', 'pickup_game')
 
+    @validates('username')
+    def validate_username(self, key, username):
+        if User.query.filter_by(username= username).first():
+            raise ValueError('Username taken')
+        return username
+    
+    @validates('email')
+    def validate_email(self, key, email):
+        if User.query.filter_by(email= email).first():
+            raise ValueError('Email already associated with an account')
+        return email
 
     @property
     def password_hash(self):
