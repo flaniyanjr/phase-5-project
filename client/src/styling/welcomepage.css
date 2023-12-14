@@ -1,0 +1,34 @@
+
+.logo-three-image-containter{
+    position: absolute; 
+    top: 250px;
+    left: 20px; 
+    padding: 0px;
+    height: 150px;
+}
+
+#logo-three {
+    max-width: 300%;
+    max-height: 300%;
+    opacity: 100%;
+  }
+
+  .logo-two-image-container{
+    position: absolute; 
+    top: 250px;
+    right: 20px; 
+    padding: 0px;
+    height: 150px;
+  }
+
+  #logo-two {
+    max-width: 300%;
+    max-height: 300%;
+    opacity: 100%;
+  }
+
+  .welcome-message {
+    color:white;
+    text-align: center;;
+  }
+  

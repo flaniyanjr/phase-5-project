@@ -1,6 +1,7 @@
 import React from "react";
 import App from "./components/App";
 import "./styling/index.css";
+import "./styling/welcomepage.css"
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import ReactDOM from "react-dom/client";
