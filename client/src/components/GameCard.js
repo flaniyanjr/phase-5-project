@@ -20,7 +20,7 @@ function GameCard({gameObj}) {
                 <p> Sport: {sport}</p>
                 <p> Total Attendees: {total_attendees}</p>
             </div>
-            <button className= 'submit-button' onClick= {() => {
+            <button className= 'submit-button green' onClick= {() => {
                 setCurrentGame({gameObj})
                 navigate('/signup-form')
             }}>Register</button>

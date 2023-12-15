@@ -96,7 +96,7 @@ function CreateGame() {
                         <label>Image</label>
                         <input type= 'text' name='image' value={gameData.image} onChange={handleChange}/>
                     </div>
-                    <button className= 'submit-button' type='submit'>Create</button>
+                    <button className= 'submit-button green' type='submit'>Create</button>
                 </form>
                 <div className= 'logo-four-image-containter'>
                     <img id= 'logo-four' src= {sportlogo4} alt= 'tennis sports logo' />

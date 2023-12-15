@@ -50,7 +50,7 @@ function PersonalCard({gameObj}) {
                 <p> Sport: {sport}</p>
                 <p> Total Attendees: {targetAttendeeTotal}</p>
             </div>
-            <button className="submit-button" onClick={handleDelete}>Unregister</button>
+            <button className="submit-button red" onClick={handleDelete}>Unregister</button>
         </div>
     )
 }
