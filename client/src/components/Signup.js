@@ -45,7 +45,6 @@ function Signup() {
                         setUser(user)
                     })
                 } else {
-                    console.log('errors? handle them')
                     setBadLogin(true)
                 }
             })

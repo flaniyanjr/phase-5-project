@@ -17,7 +17,7 @@ function CreateGame() {
     }
 
     const [gameData, setGameData]= useState(initialState)
-    const {addNewGame, createdGames}= useOutletContext()
+    const {addNewGame, createdGames, user}= useOutletContext()
 
     const currentDate= new Date() 
     const day= currentDate.getDate()
@@ -63,6 +63,7 @@ function CreateGame() {
     }
 
     return(
+        user ?
         <div>
             <div className= "create-game-form">
                 <h4>Create a Game</h4>
@@ -106,6 +107,8 @@ function CreateGame() {
             </div>
             {createdGameCards}
         </div>
+        :
+        <h1 className="required-login-message">Login required to access this page </h1>
     )
 }
 

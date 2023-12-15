@@ -5,7 +5,7 @@ import GameCard from "./GameCard"
 
 function GameLibrary() {
 
-    const {allGames}= useOutletContext()
+    const {allGames, user}= useOutletContext()
     const [searchInput, setSearchInput]= useState('')
     const [sort, setSort] = useState('')
 
@@ -43,6 +43,7 @@ function GameLibrary() {
     })
 
     return(
+        user ? 
         <div>
             <div className= 'search-sort-container'>
                 <div className="container">
@@ -67,6 +68,8 @@ function GameLibrary() {
             
             {gameCards}
         </div>
+        : 
+        <h1 className="required-login-message">Login required to access this page </h1>
     )
 }
 

@@ -246,3 +246,9 @@ body {
   max-height: 300%;
   opacity: 100%;
 }
+
+.required-login-message{
+  color: #EDEADE;
+  font-family: "Marcellus";
+  text-align: center;
+}

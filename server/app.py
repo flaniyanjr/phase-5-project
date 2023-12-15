@@ -11,6 +11,12 @@ from config import app, db, api
 # Add your model imports
 from models import User, PickupGame, PlayerSignup
 
+# @app.before_request
+# def check_if_logged_in():
+#     if not session['user_id'] and request.endpoint != 'login':
+#         return make_response({'error': 'Unauthorized. Please login'}, 401)
+
+
 
 class Users(Resource):
     def post(self):
