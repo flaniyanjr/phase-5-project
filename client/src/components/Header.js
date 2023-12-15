@@ -12,9 +12,7 @@ function Header({user, setUser}) {
           method: 'DELETE'
         }).then((resp) => {
           if (resp.ok) {
-            // handle logout on frontend
             setUser(null)
-            // navigate to route, we already have it set to go back to create account page in ours
           }
         })
       }

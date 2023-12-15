@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
         game3= PickupGame(location= 'The Sandlot', city= 'Los Angeles', state= 'CA', date= '2024-03-13', time= '14:00', sport='Baseball', image= 'https://i2.wp.com/jacobbarlow.com/wp-content/uploads/2019/05/Screenshot-2019-03-18-23.10.05.png?fit=529%2C285&ssl=1', total_attendees= 23)
 
-        game4= PickupGame(location= 'Venice Beach Courts', city= 'Los Anegles', state= 'CA', date= '2023-12-28', time= '13:00', sport= 'Basketball', image= 'https://i.pinimg.com/originals/d9/7f/1d/d97f1d658ed51fd2b3bca996cacfb2dc.jpg', total_attendees= 51)
+        game4= PickupGame(location= 'Venice Beach Courts', city= 'Los Angeles', state= 'CA', date= '2023-12-28', time= '13:00', sport= 'Basketball', image= 'https://i.pinimg.com/originals/d9/7f/1d/d97f1d658ed51fd2b3bca996cacfb2dc.jpg', total_attendees= 51)
 
         game5= PickupGame(location= 'Met Oval Field', city= 'New York', state= 'NY', date= '2024-01-12', time= '10:00', sport= 'Soccer', image= 'https://images.squarespace-cdn.com/content/v1/515e1bace4b0bca14d7a6ed3/1589414655900-A3UKH3L0A9HL2RUWYOOV/IMG_7929+2.jpg?format=1000w', total_attendees= 42)
 

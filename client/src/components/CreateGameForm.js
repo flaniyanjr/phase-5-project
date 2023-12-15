@@ -1,6 +1,8 @@
 import { useOutletContext} from "react-router-dom";
 import {useState} from 'react'
 import CreatedGameCard from "./CreatedGameCard";
+import sportlogo4 from "../img/sportlogo4.jpg"
+import sportlogo5 from "../img/sportlogo5.jpeg"
 
 function CreateGame() {
 
@@ -95,6 +97,12 @@ function CreateGame() {
                     </div>
                     <button className= 'submit-button' type='submit'>Create</button>
                 </form>
+                <div className= 'logo-four-image-containter'>
+                    <img id= 'logo-four' src= {sportlogo4} alt= 'tennis sports logo' />
+                </div>
+                <div className= 'logo-five-image-containter'>
+                <img id= 'logo-five' src= {sportlogo5} alt= 'tennis sports logo' /> 
+                </div>
             </div>
             {createdGameCards}
         </div>
