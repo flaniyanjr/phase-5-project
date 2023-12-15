@@ -4,7 +4,7 @@ import PersonalCard from "./PersonalCard";
 
 function PersonalLibrary() {
 
-    const {userSignups}= useOutletContext()
+    const {userSignups, user}= useOutletContext()
     const [searchInput, setSearchInput]= useState('')
 
     function handleSearchInput(e) {
@@ -28,6 +28,7 @@ function PersonalLibrary() {
     const totalSignups= userSignups.length
 
     return(
+        user ?
         <div>
             <div className= 'personal-search-container'>
                 <div className="container">
@@ -45,6 +46,8 @@ function PersonalLibrary() {
             </div>
             {userSignups ? gameCards : null}
         </div>
+        : 
+        <h1 className="required-login-message">Login required to access this page </h1>
     )
 }
 
