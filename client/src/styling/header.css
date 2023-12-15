@@ -13,7 +13,7 @@
     font-weight: bold;
     font-size: min(10vw, 17px);
     background: darkred;
-    color: white;
+    color: #EDEADE;
     padding: 12px 25px;
     border-radius: 5px;
     box-shadow: 0 0 3px white ;
@@ -47,9 +47,9 @@
   position: absolute; 
   top: 65px;
   right:20px; 
-  border: 2px solid white;
+  border: 2px solid #EDEADE;
   padding: 5px;
-  color: white
+  color: #EDEADE
 }
 
 #logout-button {
@@ -63,5 +63,5 @@
 }
 
 #logout-button:hover {
-  color: blue
+  color: darkred
 }
