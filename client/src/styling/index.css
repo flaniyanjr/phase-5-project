@@ -85,9 +85,9 @@ body {
   box-shadow: 0 0 2px white ;
 }
 
-.create-game-form button:hover{
+/* .create-game-form button:hover{
   background-color: #36454F;
-}
+} */
 
 .container {
   display: flex;
@@ -251,4 +251,12 @@ body {
   color: #EDEADE;
   font-family: "Marcellus";
   text-align: center;
+}
+
+.green:hover{
+  background-color: lightgreen;
+}
+
+.red:hover{
+  background-color: 	#D22B2B;
 }

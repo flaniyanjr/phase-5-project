@@ -59,7 +59,7 @@ function SignupForm() {
                     <label>Preferred Position</label>
                     <input type= 'text' name='position' value={position} onChange={handlePosition}></input>
                 </div>
-                <button className= 'submit-button' type='submit'>Register</button>
+                <button className= 'submit-button green' type='submit'>Register</button>
             </form>
             {submitted ? <p>Signup Complete!</p> : null}
         </div>
