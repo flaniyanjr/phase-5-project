@@ -1,6 +1,7 @@
 import { useOutletContext} from "react-router-dom";
 import { useState } from "react";
 import PersonalCard from "./PersonalCard";
+import Footer from "./Footer";
 
 function PersonalLibrary() {
 
@@ -45,6 +46,7 @@ function PersonalLibrary() {
                 <h4 id= 'signup-total'>Total Games: {totalSignups}</h4>
             </div>
             {userSignups ? gameCards : null}
+            <Footer />
         </div>
         : 
         <h1 className="required-login-message">Login required to access this page </h1>

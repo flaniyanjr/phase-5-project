@@ -2,6 +2,7 @@ import { useOutletContext} from "react-router-dom";
 import { useState } from "react";
 
 import GameCard from "./GameCard"
+import Footer from "./Footer";
 
 function GameLibrary() {
 
@@ -67,6 +68,7 @@ function GameLibrary() {
             </div>
             
             {gameCards}
+            <Footer />
         </div>
         : 
         <h1 className="required-login-message">Login required to access this page </h1>
