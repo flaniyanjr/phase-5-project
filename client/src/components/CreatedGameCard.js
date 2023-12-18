@@ -70,7 +70,7 @@ function CreatedGameCard({gameObj}) {
     return(
         <div className= "card">
             <h2>{location}</h2>
-            <img className= "location-image" src= {image} alt= {location} onClick= {handleShowUpdate}/>
+            <img className= "location-image submit-button" src= {image} alt= {location} onClick= {handleShowUpdate}/>
             <div>
                 <p> City: {city}</p>
                 <p> State: {state}</p>

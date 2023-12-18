@@ -41,7 +41,9 @@ if __name__ == '__main__':
 
         game8= PickupGame(location= 'Cardozo High School', city='Washington', state= 'DC', date= '2023-12-29', time= '11:00', sport= 'Football', image= 'https://cdn18.picryl.com/photo/2019/10/05/youth-football-game-at-cardozo-senior-high-school-1200-clifton-st-nw-washington-387444-1024.jpg', total_attendees= 22)
 
-        db.session.add_all([game1, game2, game3, game4, game5, game6, game7, game8])
+        game9= PickupGame(location= 'Dyckman Park', city= 'New York', state= 'NY', date= '2024-02-14', time= '21:00', sport= 'Basketball', image= 'https://i.ytimg.com/vi/tWU0IVOk4NU/maxresdefault.jpg', total_attendees= 450)
+
+        db.session.add_all([game1, game2, game3, game4, game5, game6, game7, game8, game9])
         db.session.commit()
 
         signup1= PlayerSignup(name= 'Steve Walker', preferred_position= 'Midfielder', user= user1, pickup_game= game1)
