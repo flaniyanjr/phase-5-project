@@ -7,7 +7,6 @@
 
 body {
   background-color: black;
-  /* background-image: url("https://www.designbolts.com/wp-content/uploads/2012/11/Trippy-little-Black-gradients-Seamless-Pattern.jpg"); */
 }
 
 .card {
@@ -52,8 +51,18 @@ body {
   padding: 8px;
   box-sizing: border-box;
   font-family: 'Marcellus';
+  font-size: 15px
 }
 
+.create-game-form select {
+  background-color: #EECE96;
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px;
+  box-sizing: border-box;
+  font-family: 'Marcellus';
+  font-size: 15px
+}
 
 .create-game-form{
   font-family: 'Marcellus';
@@ -64,7 +73,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 3px;
-  max-width: 35%;
+  max-width: 33.5%;
   margin: auto;
   text-align: center;
   height: 100%;
@@ -235,7 +244,7 @@ body {
 
 .logo-five-image-containter{
   position: absolute; 
-  top: 310px;
+  top: 326px;
   right: 20px; 
   padding: 0px;
   height: 150px;
