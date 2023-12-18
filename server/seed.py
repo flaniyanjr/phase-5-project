@@ -39,11 +39,17 @@ if __name__ == '__main__':
 
         game7= PickupGame(location= 'Clothier Field', city= 'Swarthmore', state= 'PA', date= '2023-12-22', time= '14:45', sport= 'Soccer', image= 'https://pbs.twimg.com/media/E5S3mB1WYAEJI90?format=jpg&name=4096x4096', total_attendees= 18)
 
-        game8= PickupGame(location= 'Cardozo High School', city='Washington', state= 'DC', date= '2023-12-29', time= '11:00', sport= 'Football', image= 'https://cdn18.picryl.com/photo/2019/10/05/youth-football-game-at-cardozo-senior-high-school-1200-clifton-st-nw-washington-387444-1024.jpg', total_attendees= 22)
+        game8= PickupGame(location= 'Cardozo High School', city='Washington', state= 'DC', date= '2023-12-29', time= '11:00', sport= 'Football', image= 'https://live.staticflickr.com/5111/7157491064_36143f512c_b.jpg', total_attendees= 22)
 
         game9= PickupGame(location= 'Dyckman Park', city= 'New York', state= 'NY', date= '2024-02-14', time= '21:00', sport= 'Basketball', image= 'https://i.ytimg.com/vi/tWU0IVOk4NU/maxresdefault.jpg', total_attendees= 450)
 
-        db.session.add_all([game1, game2, game3, game4, game5, game6, game7, game8, game9])
+        game10= PickupGame(location= 'Stanley Butler Softball Field', city= 'Cleveland', state= 'TN', date= '2024-01-30', time= '10:30', sport= 'Softball', image= 'https://leeuflames.com/images/2015/11/4//Softball%20Facility%202_038.jpg', total_attendees= 21)
+
+        game11= PickupGame(location= 'Marywood Track', city= 'Columbus', state= 'OH', date= '2023-12-28', time='8:00', sport='Running', image= 'https://www.penrithcity.nsw.gov.au/images/PCC_Harold_Corr_oval%2061.jpg', total_attendees= 14)
+
+        game12= PickupGame(location= "St. Paul's School", city= 'Baltimore', state= 'MD', date= '2023-12-27', time= '10:30', sport= 'Lacrosse', image= 'https://www.brockusa.com/wp-content/uploads/2022/08/St_Pauls_Stadium_Field-2022-6-1-scaled-1.jpg', total_attendees= 42)
+
+        db.session.add_all([game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12])
         db.session.commit()
 
         signup1= PlayerSignup(name= 'Steve Walker', preferred_position= 'Midfielder', user= user1, pickup_game= game1)
