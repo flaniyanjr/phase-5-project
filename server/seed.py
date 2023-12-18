@@ -27,7 +27,7 @@ if __name__ == '__main__':
         print('Creating Pickup Games')
         game1= PickupGame(location= 'Maryland Sports Arena', city= 'Edgewood', state= 'MD', date= '2023-12-23', time= '19:30', sport= 'Soccer', image= 'https://s3-media0.fl.yelpcdn.com/bphoto/jMgAm9iujApYifv5yHTglQ/1000s.jpg', total_attendees= 32)
 
-        game2= PickupGame(location= 'Rucker Park', city= 'New York', state= 'NY', date= '2024-01-01', time= '00:01', sport= 'Basketball', image= 'https://boardroom.tv/wp-content/uploads/2021/10/20211008-NBPA-RUCKER-JL-84.jpg', total_attendees= 212)
+        game2= PickupGame(location= 'Rucker Park', city= 'New York', state= 'NY', date= '2024-01-01', time= '00:01', sport= 'Basketball', image= 'https://static.nycgovparks.org/images/photo_gallery/full_size/24848.jpg', total_attendees= 212)
 
         game3= PickupGame(location= 'The Sandlot', city= 'Los Angeles', state= 'CA', date= '2024-03-13', time= '14:00', sport='Baseball', image= 'https://i2.wp.com/jacobbarlow.com/wp-content/uploads/2019/05/Screenshot-2019-03-18-23.10.05.png?fit=529%2C285&ssl=1', total_attendees= 23)
 
