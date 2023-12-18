@@ -8,6 +8,7 @@ function Signup() {
 
     const [signup, setSignup]= useState(true)
     const [badLogin, setBadLogin]= useState(false)
+    const [badSignup, setBadSignup]= useState(false)
     const {setUser}= useOutletContext()
 
     const signupSchema= yup.object().shape({
@@ -45,7 +46,14 @@ function Signup() {
                         setUser(user)
                     })
                 } else {
-                    setBadLogin(true)
+                    if (endpoint == '/login') {
+                        setBadLogin(true)
+                        setBadSignup(false)
+                    } else if (endpoint == '/users') {
+                        setBadSignup(true)
+                        setBadLogin(false)
+                    }
+                    
                 }
             })
         }
@@ -57,7 +65,6 @@ function Signup() {
 
     return(
         <Box className= 'signup-container'>
-            {/* {Object.keys(formik.errors).map((key) => <li>{formik.errors[key]}</li>)} */}
 
             <div className= 'signup-field form'>
                 <Button onClick={toggleSignup} id='signup-button'>{signup ? 'Click to Login' : 'CLick to Register'}</Button>
@@ -74,7 +81,6 @@ function Signup() {
                     onChange={formik.handleChange}
                     className='signup-input'
                     />
-                    {/* {formik.errors.username && <li>{formik.errors.username}</li>} */}
                     {signup && <TextField 
                         id="email" 
                         label="email" 
@@ -87,7 +93,6 @@ function Signup() {
                         onChange={formik.handleChange}
                         className='signup-input'
                     />}
-                    {/* {formik.errors.email && <li>{formik.errors.email}</li>} */}
                     <TextField 
                         id="password" 
                         label="password" 
@@ -100,7 +105,6 @@ function Signup() {
                         onChange={formik.handleChange}
                         className='signup-input'
                     />
-                    {/* {formik.errors.password && <li>{formik.errors.password}</li>} */}
                     {signup && <TextField 
                         id="passwordConfirmation" 
                         label="re-enter password" 
@@ -113,11 +117,11 @@ function Signup() {
                         onChange={formik.handleChange}
                         className='signup-input'
                     />}
-                    {/* {formik.errors.passwordConfirmation && <li>{formik.errors.passwordConfirmation}</li>} */}
                     <div id= 'signup-submit' >
                         <Button id= 'signup-submit' variant='contained' type='submit'>Submit</Button>
                     </div>
                     {badLogin ? <h2 id= 'login-error-message'>Incorrent username or password. Please try again</h2> : null}
+                    {badSignup ? <h2 id= 'login-error-message'> Username or email already in use. Please use another one</h2> : null}
                 </form>
             </div>
         </Box>

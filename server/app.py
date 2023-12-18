@@ -11,11 +11,6 @@ from config import app, db, api
 # Add your model imports
 from models import User, PickupGame, PlayerSignup
 
-# @app.before_request
-# def check_if_logged_in():
-#     if not session['user_id'] and request.endpoint != 'login':
-#         return make_response({'error': 'Unauthorized. Please login'}, 401)
-
 
 
 class Users(Resource):
@@ -120,8 +115,6 @@ def login():
     try:
         user= User.query.filter_by(username= params['username']).first()
         password= params['password']
-        print(user)
-        print(password)
         if user.authenticate(password):
             session['user_id']= user.id
             return make_response({'user': user.to_dict()}, 200)
