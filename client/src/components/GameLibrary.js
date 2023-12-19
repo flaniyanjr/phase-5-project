@@ -30,6 +30,9 @@ function GameLibrary() {
         case 'time':
             sortedGames = allGames.sort((a,b) => a.time > b.time ? 1 : -1)
             break
+        case 'state':
+            sortedGames= allGames.sort((a,b) => a.state > b.state ? 1: -1)
+            break
         case 'attendance':
             sortedGames= allGames.sort((a,b) => a.total_attendees - b.total_attendees)
     }
@@ -62,6 +65,7 @@ function GameLibrary() {
                         <option value=''></option>
                         <option value='date'>date</option>
                         <option value='time'>time</option>
+                        <option value='state'>state</option>
                         <option value='attendance'>attendance</option>
                     </select>
                 </div>

@@ -16,8 +16,7 @@ function App() {
       if (resp.ok) {
         resp.json().then((user) => setUser(user))
       } else {
-        // handle what should happen if not logged in
-        console.log('error')
+        console.log('No user logged in')
       }
     })
   }, [])
