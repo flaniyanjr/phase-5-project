@@ -20,8 +20,9 @@ if __name__ == '__main__':
 
         print('Creating Users')
         user1= User(username= 'swalker', email= 'swalker@gmail.com', password_hash= 'steve')
+        user2= User(username= 'felixl', email= 'felixl@felix.com', password_hash= 'felix')
 
-        db.session.add_all([user1])
+        db.session.add_all([user1, user2])
         db.session.commit()
 
         print('Creating Pickup Games')
@@ -45,16 +46,19 @@ if __name__ == '__main__':
 
         game10= PickupGame(location= 'Stanley Butler Softball Field', city= 'Cleveland', state= 'TN', date= '2024-01-30', time= '10:30', sport= 'Softball', image= 'https://leeuflames.com/images/2015/11/4//Softball%20Facility%202_038.jpg', total_attendees= 21)
 
-        game11= PickupGame(location= 'Marywood Track', city= 'Columbus', state= 'OH', date= '2023-12-28', time='8:00', sport='Running', image= 'https://www.penrithcity.nsw.gov.au/images/PCC_Harold_Corr_oval%2061.jpg', total_attendees= 14)
+        game11= PickupGame(location= 'Marywood Track', city= 'Columbus', state= 'OH', date= '2023-12-28', time='08:00', sport='Running', image= 'https://www.penrithcity.nsw.gov.au/images/PCC_Harold_Corr_oval%2061.jpg', total_attendees= 14)
 
         game12= PickupGame(location= "St. Paul's School", city= 'Baltimore', state= 'MD', date= '2023-12-27', time= '10:30', sport= 'Lacrosse', image= 'https://www.brockusa.com/wp-content/uploads/2022/08/St_Pauls_Stadium_Field-2022-6-1-scaled-1.jpg', total_attendees= 42)
 
         db.session.add_all([game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12])
         db.session.commit()
 
-        signup1= PlayerSignup(name= 'Steve Walker', preferred_position= 'Midfielder', user= user1, pickup_game= game1)
+        signup1= PlayerSignup(name= 'Steve Walker', preferred_position= 'Center', user= user1, pickup_game= game2)
+        signup2= PlayerSignup(name= 'Felix Laniyan', preferred_position= 'Defender', user= user2, pickup_game= game1)
+        signup3= PlayerSignup(name= 'Felix Laniyan', preferred_position= 'Point Guard', user= user2, pickup_game= game4)
+        signup4= PlayerSignup(name= 'Felix Laniyan', preferred_position= 'Running Back', user= user2, pickup_game= game8)
 
-        db.session.add_all([signup1])
+        db.session.add_all([signup1, signup2, signup3, signup4])
         db.session.commit()
 
         print('Creating Player Signups')
