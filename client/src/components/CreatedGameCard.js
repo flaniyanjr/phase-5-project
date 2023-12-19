@@ -23,7 +23,9 @@ function CreatedGameCard({gameObj}) {
             method: 'DELETE',
         })
         deleteNewGame(id)
-        removeSignup(currentGameSignup.id)
+        if (currentGameSignup) {
+            removeSignup(currentGameSignup.id)
+        }
     }
 
     function handleDateChange(e) {
