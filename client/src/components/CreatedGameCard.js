@@ -4,17 +4,26 @@ import { useState } from "react";
 function CreatedGameCard({gameObj}) {
     const {location, city, state, date, time, sport, image, total_attendees, id}= gameObj
 
-    const {deleteNewGame, allGames, updateNewGame}= useOutletContext()
+    const {deleteNewGame, allGames, updateNewGame, userSignups, removeSignup}= useOutletContext()
+
     const [newDate, setNewDate]= useState(date)
     const [newTime, setNewTime]= useState(time)
     const [showUpdate, setShowUpdate]= useState(false)
     const [submitted, setSubmitted]= useState(false)
+
+    const currentGameSignupsArray= userSignups.filter(signup => {
+        return signup.pickup_game_id === id
+    })
+
+    const currentGameSignup= currentGameSignupsArray[0]
+
 
     function handleDelete() {
         fetch(`/pickup_games/${id}`, {
             method: 'DELETE',
         })
         deleteNewGame(id)
+        removeSignup(currentGameSignup.id)
     }
 
     function handleDateChange(e) {
