@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
         game2= PickupGame(location= 'Rucker Park', city= 'New York', state= 'NY', date= '2025-01-01', time= '00:01', sport= 'Basketball', image= 'https://static.nycgovparks.org/images/photo_gallery/full_size/24848.jpg', total_attendees= 212)
 
-        game3= PickupGame(location= 'The Sandlot', city= 'Los Angeles', state= 'CA', date= '2024-011-13', time= '14:00', sport='Baseball', image= 'https://i2.wp.com/jacobbarlow.com/wp-content/uploads/2019/05/Screenshot-2019-03-18-23.10.05.png?fit=529%2C285&ssl=1', total_attendees= 23)
+        game3= PickupGame(location= 'The Sandlot', city= 'Los Angeles', state= 'CA', date= '2024-11-13', time= '14:00', sport='Baseball', image= 'https://i2.wp.com/jacobbarlow.com/wp-content/uploads/2019/05/Screenshot-2019-03-18-23.10.05.png?fit=529%2C285&ssl=1', total_attendees= 23)
 
         game4= PickupGame(location= 'Venice Beach Courts', city= 'Los Angeles', state= 'CA', date= '2024-12-28', time= '13:00', sport= 'Basketball', image= 'https://i.pinimg.com/originals/d9/7f/1d/d97f1d658ed51fd2b3bca996cacfb2dc.jpg', total_attendees= 51)
 
