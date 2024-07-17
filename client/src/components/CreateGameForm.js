@@ -20,8 +20,8 @@ function CreateGame() {
     const {addNewGame, createdGames, user}= useOutletContext()
 
     const currentDate= new Date() 
-    const day= currentDate.getDate()
-    const month= currentDate.getMonth() + 1
+    let day= currentDate.getDate()
+    let month= currentDate.getMonth() + 1
     const year= currentDate.getFullYear()
 
     if (day < 10) {
