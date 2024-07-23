@@ -31,7 +31,7 @@ Welcome to PickupPal! This web application allows users to create and sign up fo
 To run the application, follow these steps:
 
 1. Clone the repository
-2. In your terminal, run pipenv install & pipenv shell
+2. In your terminal, run pipenv install && pipenv shell
 3. Run npm install --prefix client
 4. Run python server/app.py to start the backend
 5. Run npm start --prefix client to start the frontend
