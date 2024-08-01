@@ -10,7 +10,7 @@ def test_can_get_player_signups():
     response= requests.get(ENDPOINT + '/api/v1/player_signups')
     assert response.status_code == 200
 
-def test_can_create_user():
+def test_create_user_success():
     payload= {
         'username' : 'testing1',
         'email' : 'testing1@test.com',
