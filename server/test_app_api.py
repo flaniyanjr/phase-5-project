@@ -171,3 +171,32 @@ def test_create_player_signup_success():
     assert player_signup_data['preferred_position'] == payload['preferred_position']
     assert player_signup_data['user_id'] == payload['user_id']
     assert player_signup_data['pickup_game_id'] == payload['pickup_game_id']
+
+def test_patch_newly_created_pickup_game_success():
+    create_new_game_payload= {
+        'location' : 'Calvert Hall',
+        'city' : 'Baltimore',
+        'state' : 'Maryland',
+        'date' : '2025-01-12',
+        'time' : '13:30',
+        'sport' : 'Soccer',
+        'image' : 'https://stadiumconnection.com/simages/1534.jpg',
+        'total_attendees' : 0
+    }
+    new_game_request= requests.post(ENDPOINT + '/api/v1/pickup_games', json= create_new_game_payload)
+    assert new_game_request.status_code == 201
+
+    new_game_id= new_game_request.json()['id']
+
+    update_game_payload= {
+        'date' : '2025-05-24',
+        'time' : '14:45'
+    }
+    update_pickup_game_request= requests.patch(ENDPOINT + f'/api/v1/pickup_games/{new_game_id}', json= update_game_payload)
+    assert update_pickup_game_request.status_code == 200
+
+    updated_game= requests.get(ENDPOINT + f'/api/v1/pickup_games/{new_game_id}')
+    updated_game_data= updated_game.json()
+    assert updated_game_data['date'] == update_game_payload['date']
+    assert updated_game_data['time'] == update_game_payload['time']
+
