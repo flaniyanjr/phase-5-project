@@ -18,32 +18,37 @@ function SignupForm() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch('/player_signups', {
-            method: 'POST', 
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({
-                name: signupName,
-                preferred_position: position,
-                user_id: user.id,
-                pickup_game_id: currentGame.gameObj.id
+        if (signupName === '') {
+            alert('Name is required')
+        } else {
+            fetch('/player_signups', {
+                method: 'POST', 
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({
+                    name: signupName,
+                    preferred_position: position,
+                    user_id: user.id,
+                    pickup_game_id: currentGame.gameObj.id
+                })
             })
-        })
-        .then(r => r.json())
-        .then(newSignup => {
-            addNewSignup(newSignup)
-        })
-        fetch(`/pickup_games/${currentGame.gameObj.id}`, {
-            method: 'PATCH',
-            headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringify({
-                total_attendees: currentGame.gameObj.total_attendees + 1
+            .then(r => r.json())
+            .then(newSignup => {
+                addNewSignup(newSignup)
             })
-        })
-        .then(r => r.json())
-        .then(newGame => updateGameAttendees(newGame))
-        setSignupName('')
-        setPosition('')
-        setSubmitted(true)
+            fetch(`/pickup_games/${currentGame.gameObj.id}`, {
+                method: 'PATCH',
+                headers: {'Content-Type' : 'application/json'},
+                body: JSON.stringify({
+                    total_attendees: currentGame.gameObj.total_attendees + 1
+                })
+            })
+            .then(r => r.json())
+            .then(newGame => updateGameAttendees(newGame))
+            setSignupName('')
+            setPosition('')
+            setSubmitted(true)
+        }
+        
     }
 
 
