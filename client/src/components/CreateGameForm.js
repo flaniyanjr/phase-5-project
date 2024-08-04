@@ -50,16 +50,20 @@ function CreateGame() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch('/pickup_games', {
-            method: 'POST',
-            headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringify({...gameData, total_attendees: 0})
-        })
-        .then(r => r.json())
-        .then(newGame => {
-            addNewGame(newGame)
-        })
-        setGameData(initialState)
+        if (gameData['location'] === '' || gameData['city'] === '' || gameData['state'] === '' || gameData['date'] === '' || gameData['time'] === '') {
+            alert('All fields except for image are required')
+        } else {
+            fetch('/pickup_games', {
+                method: 'POST',
+                headers: {'Content-Type' : 'application/json'},
+                body: JSON.stringify({...gameData, total_attendees: 0})
+            })
+            .then(r => r.json())
+            .then(newGame => {
+                addNewGame(newGame)
+            })
+            setGameData(initialState)
+        }
     }
 
     return(
