@@ -19,14 +19,17 @@ def test_create_user_success():
     # Test to create a user
     create_user_response= requests.post(ENDPOINT + '/api/v1/users', json= payload)
     assert create_user_response.status_code == 201
-    print(create_user_response.json())
-    print(create_user_response.status_code)
 
     user_id= create_user_response.json()['user']['id']
 
     # Test to GET user to make sure it was created successfully
     get_user_response= requests.get(ENDPOINT + f'/api/v1/users/{user_id}')
     assert get_user_response.status_code == 200
+
+    # Tests to make sure the newly created user data is the same as the payload inputs for each User attribute (remember that password is taken out of the response in the serialize rules)
+    user_response_data= get_user_response.json()
+    assert user_response_data['username'] == payload['username']
+    assert user_response_data['email'] == payload['email']
 
 def test_create_pickup_game_success():
     payload= {
@@ -48,6 +51,17 @@ def test_create_pickup_game_success():
     # Test to GET the new game to make sure it was created successfully
     get_pickup_game= requests.get(ENDPOINT + f'/api/v1/pickup_games/{pickup_game_id}')
     assert get_pickup_game.status_code == 200
+
+    # Tests to make sure the newly created pickup game data is the same as the payload inputs for each PickupGame attribute
+    pickup_game_data= get_pickup_game.json()
+    assert pickup_game_data['location'] == payload['location']
+    assert pickup_game_data['city'] == payload['city']
+    assert pickup_game_data['state'] == payload['state']
+    assert pickup_game_data['date'] == payload['date']
+    assert pickup_game_data['time'] == payload['time']
+    assert pickup_game_data['sport'] == payload['sport']
+    assert pickup_game_data['image'] == payload['image']
+    assert pickup_game_data['total_attendees'] == payload['total_attendees']
 
 def test_create_pickup_game_failure_no_location():
     payload= {
