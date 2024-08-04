@@ -107,6 +107,12 @@ class PlayerSignups(Resource):
 api.add_resource(PlayerSignups, '/api/v1/player_signups')
 
 class PlayerSignupsById(Resource):
+    def get(self, id):
+        signup= PlayerSignup.query.get(id)
+        if not signup:
+            return make_response({'error' : 'Player signup not found'})
+        return make_response(signup.to_dict(), 200)
+
     def delete(self, id):
         signup= PlayerSignup.query.get(id)
         db.session.delete(signup)
