@@ -14,6 +14,10 @@ from models import User, PickupGame, PlayerSignup
 
 
 class Users(Resource):
+    def get(self):
+        users_list= [user.to_dict() for user in User.query.all()]
+        return make_response(users_list, 200)
+
     def post(self):
         params= request.json
         try:
@@ -26,6 +30,15 @@ class Users(Resource):
         return make_response({'user': user.to_dict()}, 201)
 
 api.add_resource(Users, '/api/v1/users')
+
+class UsersById(Resource):
+    def get(self, id):
+        user= User.query.get(id)
+        if not user:
+            return make_response({'error' : 'User not found'}, 404)
+        return make_response(user.to_dict(), 200)
+
+api.add_resource(UsersById, '/api/v1/users/<int:id>')
 
 class PickupGames(Resource):
     def get(self):
@@ -47,6 +60,12 @@ class PickupGames(Resource):
 api.add_resource(PickupGames, '/api/v1/pickup_games')
 
 class PickupGamesById(Resource):
+    def get(self, id):
+        game= PickupGame.query.get(id)
+        if not game:
+            return make_response({'error' : 'Pickup game not found'}, 404)
+        return make_response(game.to_dict(), 200)
+
     def patch(self, id):
         params= request.json
         game= PickupGame.query.get(id)

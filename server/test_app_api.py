@@ -16,8 +16,17 @@ def test_create_user_success():
         'email' : 'testing1@test.com',
         'password' : 'testing1'
     }
-    response= requests.post(ENDPOINT + '/api/v1/users', json= payload)
-    assert response.status_code == 201
+    # Test to create a user
+    create_user_response= requests.post(ENDPOINT + '/api/v1/users', json= payload)
+    assert create_user_response.status_code == 201
+    print(create_user_response.json())
+    print(create_user_response.status_code)
+
+    user_id= create_user_response.json()['user']['id']
+
+    # Test to GET user to make sure it was created successfully
+    get_user_response= requests.get(ENDPOINT + f'/api/v1/users/{user_id}')
+    assert get_user_response.status_code == 200
 
 def test_create_pickup_game_success():
     payload= {
@@ -30,8 +39,15 @@ def test_create_pickup_game_success():
         'image' : 'https://i.ytimg.com/vi/tWU0IVOk4NU/maxresdefault.jpg',
         'total_attendees' : 0
     }
-    response= requests.post(ENDPOINT + '/api/v1/pickup_games', json= payload)
-    assert response.status_code == 201
+    # Test to create a pickup game
+    create_pickup_game_response= requests.post(ENDPOINT + '/api/v1/pickup_games', json= payload)
+    assert create_pickup_game_response.status_code == 201
+
+    pickup_game_id= create_pickup_game_response.json()['id']
+
+    # Test to GET the new game to make sure it was created successfully
+    get_pickup_game= requests.get(ENDPOINT + f'/api/v1/pickup_games/{pickup_game_id}')
+    assert get_pickup_game.status_code == 200
 
 def test_create_pickup_game_failure_no_location():
     payload= {
