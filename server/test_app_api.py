@@ -19,8 +19,6 @@ def test_create_user_success():
     # Test to create a user
     create_user_response= requests.post(ENDPOINT + '/api/v1/users', json= payload)
     assert create_user_response.status_code == 201
-    print(create_user_response.json())
-    print(create_user_response.status_code)
 
     user_id= create_user_response.json()['user']['id']
 
