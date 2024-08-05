@@ -142,7 +142,7 @@ def test_create_pickup_game_failure_no_sport():
         'date' : '2024-09-24',
         'time' : '13:30',
         'sport' : '',
-        'image' : 'https://i.ytimg.com/vi/tWU0IVOk4NU/maxresdefault.jpg',
+        'image' : 'https://sportsgrass.com/wp-content/uploads/2018/12/1Q5Z8fGg.jpeg',
         'total_attendees' : 0
     }
     response= requests.post(ENDPOINT + '/api/v1/pickup_games', json= payload)
@@ -174,13 +174,13 @@ def test_create_player_signup_success():
 
 def test_patch_newly_created_pickup_game_success():
     create_new_game_payload= {
-        'location' : 'Calvert Hall',
+        'location' : 'Test Field',
         'city' : 'Baltimore',
         'state' : 'Maryland',
         'date' : '2025-01-12',
         'time' : '13:30',
         'sport' : 'Soccer',
-        'image' : 'https://stadiumconnection.com/simages/1534.jpg',
+        'image' : 'https://sportsgrass.com/wp-content/uploads/2018/12/1Q5Z8fGg.jpeg',
         'total_attendees' : 0
     }
     new_game_request= requests.post(ENDPOINT + '/api/v1/pickup_games', json= create_new_game_payload)
@@ -200,3 +200,36 @@ def test_patch_newly_created_pickup_game_success():
     assert updated_game_data['date'] == update_game_payload['date']
     assert updated_game_data['time'] == update_game_payload['time']
 
+def test_delete_pickup_game_success():
+    create_new_game_payload= {
+        'location' : 'Test Field',
+        'city' : 'Pittsburgh',
+        'state' : 'Pennsylvania',
+        'date' : '2025-03-30',
+        'time' : '19:00',
+        'sport' : 'Hockey',
+        'image' : 'https://sportsgrass.com/wp-content/uploads/2018/12/1Q5Z8fGg.jpeg',
+        'total_attendees' : 0
+    }
+    create_new_game_request= requests.post(ENDPOINT + '/api/v1/pickup_games', json= create_new_game_payload)
+    assert create_new_game_request.status_code == 201
+
+    new_game_id= create_new_game_request.json()['id']
+
+    delete_game_request= requests.delete(ENDPOINT + f'/api/v1/pickup_games/{new_game_id}')
+    assert delete_game_request.status_code == 204
+
+def test_delete_player_signup():
+    payload= {
+        'name' : 'Testing',
+        'preferred_position' : 'Midfielder',
+        'user_id' : 2,
+        'pickup_game_id': 1
+    }
+    create_player_signup_request= requests.post(ENDPOINT + '/api/v1/player_signups', json= payload)
+    assert create_player_signup_request.status_code == 201
+
+    new_signup_id= create_player_signup_request.json()['id']
+
+    delete_player_signup_request= requests.delete(ENDPOINT + f'/api/v1/player_signups/{new_signup_id}')
+    assert delete_player_signup_request.status_code == 204
