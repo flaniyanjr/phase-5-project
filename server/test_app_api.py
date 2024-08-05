@@ -172,7 +172,7 @@ def test_create_player_signup_success():
     assert player_signup_data['user_id'] == payload['user_id']
     assert player_signup_data['pickup_game_id'] == payload['pickup_game_id']
 
-def test_patch_newly_created_pickup_game_success():
+def test_update_newly_created_pickup_game_success():
     create_new_game_payload= {
         'location' : 'Test Field',
         'city' : 'Baltimore',
@@ -183,17 +183,17 @@ def test_patch_newly_created_pickup_game_success():
         'image' : 'https://sportsgrass.com/wp-content/uploads/2018/12/1Q5Z8fGg.jpeg',
         'total_attendees' : 0
     }
-    new_game_request= requests.post(ENDPOINT + '/api/v1/pickup_games', json= create_new_game_payload)
-    assert new_game_request.status_code == 201
+    new_game_response= requests.post(ENDPOINT + '/api/v1/pickup_games', json= create_new_game_payload)
+    assert new_game_response.status_code == 201
 
-    new_game_id= new_game_request.json()['id']
+    new_game_id= new_game_response.json()['id']
 
     update_game_payload= {
         'date' : '2025-05-24',
         'time' : '14:45'
     }
-    update_pickup_game_request= requests.patch(ENDPOINT + f'/api/v1/pickup_games/{new_game_id}', json= update_game_payload)
-    assert update_pickup_game_request.status_code == 200
+    update_pickup_game_response= requests.patch(ENDPOINT + f'/api/v1/pickup_games/{new_game_id}', json= update_game_payload)
+    assert update_pickup_game_response.status_code == 200
 
     updated_game= requests.get(ENDPOINT + f'/api/v1/pickup_games/{new_game_id}')
     updated_game_data= updated_game.json()
@@ -211,13 +211,13 @@ def test_delete_pickup_game_success():
         'image' : 'https://sportsgrass.com/wp-content/uploads/2018/12/1Q5Z8fGg.jpeg',
         'total_attendees' : 0
     }
-    create_new_game_request= requests.post(ENDPOINT + '/api/v1/pickup_games', json= create_new_game_payload)
-    assert create_new_game_request.status_code == 201
+    create_new_game_response= requests.post(ENDPOINT + '/api/v1/pickup_games', json= create_new_game_payload)
+    assert create_new_game_response.status_code == 201
 
-    new_game_id= create_new_game_request.json()['id']
+    new_game_id= create_new_game_response.json()['id']
 
-    delete_game_request= requests.delete(ENDPOINT + f'/api/v1/pickup_games/{new_game_id}')
-    assert delete_game_request.status_code == 204
+    delete_game_response= requests.delete(ENDPOINT + f'/api/v1/pickup_games/{new_game_id}')
+    assert delete_game_response.status_code == 204
 
 def test_delete_player_signup():
     payload= {
@@ -226,10 +226,10 @@ def test_delete_player_signup():
         'user_id' : 2,
         'pickup_game_id': 1
     }
-    create_player_signup_request= requests.post(ENDPOINT + '/api/v1/player_signups', json= payload)
-    assert create_player_signup_request.status_code == 201
+    create_player_signup_response= requests.post(ENDPOINT + '/api/v1/player_signups', json= payload)
+    assert create_player_signup_response.status_code == 201
 
-    new_signup_id= create_player_signup_request.json()['id']
+    new_signup_id= create_player_signup_response.json()['id']
 
-    delete_player_signup_request= requests.delete(ENDPOINT + f'/api/v1/player_signups/{new_signup_id}')
-    assert delete_player_signup_request.status_code == 204
+    delete_player_signup_response= requests.delete(ENDPOINT + f'/api/v1/player_signups/{new_signup_id}')
+    assert delete_player_signup_response.status_code == 204
